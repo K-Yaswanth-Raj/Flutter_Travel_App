@@ -1,12 +1,19 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:travel_app/misc/colors.dart';
 import 'package:travel_app/widgets/app_large_text.dart';
 
-class HomePage extends StatelessWidget {
+class HomePage extends StatefulWidget {
   const HomePage({super.key});
 
   @override
+  State<HomePage> createState() => _HomePageState();
+}
+
+class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
+  @override
   Widget build(BuildContext context) {
+    TabController _tabController = TabController(length: 3, vsync: this);
     return SafeArea(
         child: Scaffold(
       body: Column(
@@ -44,20 +51,59 @@ class HomePage extends StatelessWidget {
             height: 40,
           ),
           Container(
-            child: TabBar(controller: , tabs: [
-              Tab(
-                text: 'Places',
-              ),
-              Tab(
-                text: 'Inspiration',
-              ),
-              Tab(
-                text: 'Emotions',
-              ),
-            ]),
+            child: Align(
+              alignment: Alignment.centerLeft,
+              child: TabBar(
+                  labelPadding: EdgeInsets.only(left: 40, right: 20),
+                  controller: _tabController,
+                  dividerColor: Colors.white,
+                  labelColor: Colors.black,
+                  unselectedLabelColor: Colors.black26,
+                  isScrollable: true,
+                  indicatorSize: TabBarIndicatorSize.label,
+                  indicator:
+                      CircleTabIndicator(color: AppColors.mainColor, radius: 4),
+                  tabs: [
+                    Tab(
+                      text: 'Places',
+                    ),
+                    Tab(
+                      text: 'Inspiration',
+                    ),
+                    Tab(
+                      text: 'Emotions',
+                    ),
+                  ]),
+            ),
           )
         ],
       ),
     ));
+  }
+}
+
+// ignore: must_be_immutable
+class CircleTabIndicator extends Decoration {
+  final Color color;
+  double radius;
+  CircleTabIndicator({required this.color, required this.radius});
+  @override
+  BoxPainter createBoxPainter([VoidCallback? onChanged]) {
+    return _Ciriclepainter(color: color, radius: radius);
+  }
+}
+
+class _Ciriclepainter extends BoxPainter {
+  final Color color;
+  double radius;
+  _Ciriclepainter({required this.color, required this.radius});
+  @override
+  void paint(Canvas canvas, Offset offset, ImageConfiguration configuration) {
+    Paint _paint = Paint();
+    _paint.color = color;
+    _paint.isAntiAlias = true;
+    final Offset circleOffset = Offset(
+        configuration.size!.width / 2 + 8, configuration.size!.height - radius);
+    canvas.drawCircle(offset + circleOffset, radius, _paint);
   }
 }
