@@ -5,14 +5,28 @@ import 'package:travel_app/pages/navpages/home_page.dart';
 import 'package:travel_app/pages/navpages/my_page.dart';
 import 'package:travel_app/pages/navpages/search_page.dart';
 
-class MainPage extends StatelessWidget {
+class MainPage extends StatefulWidget {
   MainPage({super.key});
+
+  @override
+  State<MainPage> createState() => _MainPageState();
+}
+
+class _MainPageState extends State<MainPage> {
   List pages = [
     HomePage(),
     BarItemPage(),
     SearchPage(),
     MyPage(),
   ];
+
+  int currentIndex = 0;
+
+  void onTap(int index) {
+    setState(() {
+      currentIndex = index;
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -22,6 +36,9 @@ class MainPage extends StatelessWidget {
           title: Text('Main Page'),
         ),
         bottomNavigationBar: BottomNavigationBar(
+          type: BottomNavigationBarType.fixed,
+          onTap: onTap,
+          currentIndex: currentIndex,
           selectedItemColor: Colors.black,
           unselectedItemColor: Colors.black38,
           showSelectedLabels: false,
@@ -50,7 +67,7 @@ class MainPage extends StatelessWidget {
                 )),
           ],
         ),
-        body: pages[0],
+        body: pages[currentIndex],
       ),
     );
   }
