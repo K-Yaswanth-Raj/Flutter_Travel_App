@@ -41,14 +41,14 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
             ),
           ),
           SizedBox(
-            height: 40,
+            height: 30,
           ),
           Padding(
             padding: const EdgeInsets.only(left: 30.0),
             child: AppLargeText(text: 'Discover'),
           ),
           SizedBox(
-            height: 40,
+            height: 10,
           ),
           Container(
             child: Align(
@@ -74,6 +74,36 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                       text: 'Emotions',
                     ),
                   ]),
+            ),
+          ),
+          Container(
+            padding: EdgeInsets.only(left: 30),
+            height: 300,
+            width: double.maxFinite,
+            child: TabBarView(
+              controller: _tabController,
+              children: [
+                ListView.builder(
+                  itemCount: 3,
+                  scrollDirection: Axis.horizontal,
+                  itemBuilder: (context, index) {
+                    return Container(
+                      margin: EdgeInsets.only(right: 15, top: 10),
+                      width: 200,
+                      height: 300,
+                      decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(20),
+                          color: Colors.white,
+                          image: DecorationImage(
+                              fit: BoxFit.cover,
+                              image: AssetImage('img/mountain.jpeg'))),
+                    );
+                  },
+                ),
+                Text('ji'),
+                Text('ji'),
+                
+              ],
             ),
           )
         ],
