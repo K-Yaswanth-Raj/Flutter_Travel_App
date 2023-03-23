@@ -12,6 +12,12 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
+  var images = {
+    'balloning.png': 'Balloning',
+    'hiking.png': 'Hiking',
+    'kayaking.png': 'Kayaking',
+    'snorkling.png': 'Snorkling'
+  };
   @override
   Widget build(BuildContext context) {
     TabController _tabController = TabController(length: 3, vsync: this);
@@ -42,14 +48,14 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
             ),
           ),
           SizedBox(
-            height: 20,
+            height: 10,
           ),
           Padding(
             padding: const EdgeInsets.only(left: 30.0),
             child: AppLargeText(text: 'Discover'),
           ),
           SizedBox(
-            height: 10,
+            height: 5,
           ),
           Container(
             child: Align(
@@ -120,7 +126,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                 ),
                 AppText(
                   text: 'See all',
-                  color: Colors.indigo,
+                  color: Colors.indigoAccent,
                 ),
               ],
             ),
@@ -139,6 +145,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                   return Container(
                     margin: EdgeInsets.only(right: 30),
                     child: Column(
+                      mainAxisAlignment: MainAxisAlignment.spaceAround,
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
                         Container(
@@ -149,12 +156,16 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                               color: Colors.white,
                               image: DecorationImage(
                                   fit: BoxFit.cover,
-                                  image: AssetImage('img/mountain.jpeg'))),
+                                  image: AssetImage(
+                                      'img/' + images.keys.elementAt(index)))),
+                        ),
+                        SizedBox(
+                          height: 5,
                         ),
                         Container(
                           child: AppText(
-                            text: 'Kayaking',
-                            color: Colors.indigoAccent,
+                            text: images.values.elementAt(index),
+                            color: Colors.black87,
                           ),
                         )
                       ],
