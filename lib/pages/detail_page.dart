@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:travel_app/misc/colors.dart';
 import 'package:travel_app/widgets/app_large_text.dart';
+import 'package:travel_app/widgets/app_text.dart';
 
 class DetailPage extends StatelessWidget {
   const DetailPage({super.key});
@@ -59,6 +60,7 @@ class DetailPage extends StatelessWidget {
                     ),
                   ),
                   child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -73,7 +75,50 @@ class DetailPage extends StatelessWidget {
                           ),
                         ],
                       ),
-                      SizedBox(height: 10,),
+                      SizedBox(
+                        height: 6,
+                      ),
+                      Row(
+                        children: [
+                          Icon(
+                            Icons.location_on_rounded,
+                            color: AppColors.mainColor,
+                          ),
+                          SizedBox(
+                            width: 5,
+                          ),
+                          Text(
+                            'USA, California',
+                            style: TextStyle(color: AppColors.mainColor),
+                          )
+                        ],
+                      ),
+                      SizedBox(
+                        height: 10,
+                      ),
+                      Row(
+                        children: [
+                          Wrap(
+                            children: List.generate(4, (index) {
+                              return Icon(
+                                Icons.star_rate,
+                                color: Colors.amber,
+                              );
+                            }),
+                          ),
+                          Icon(
+                            Icons.star_half,
+                            color: Colors.amber,
+                          ),
+                          SizedBox(
+                            width: 3,
+                          ),
+                          AppText(
+                            text: '(4.0)',
+                            color: Colors.black54,
+                          ),
+                        ],
+                      ),
                       
                     ],
                   ),
