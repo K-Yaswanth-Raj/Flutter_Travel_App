@@ -4,6 +4,7 @@ import 'package:travel_app/misc/colors.dart';
 import 'package:travel_app/widgets/app_button.dart';
 import 'package:travel_app/widgets/app_large_text.dart';
 import 'package:travel_app/widgets/app_text.dart';
+import 'package:travel_app/widgets/responsive_button.dart';
 
 class DetailPage extends StatefulWidget {
   const DetailPage({super.key});
@@ -188,11 +189,33 @@ class _DetailPageState extends State<DetailPage> {
                             'You must go for a travel. Travelling helps get rid of pressure. Go to mountains to see the nature. ',
                         color: Colors.black54,
                       ),
-                      
                     ],
                   ),
                 ),
               ),
+              Positioned(
+                bottom: 20 ,
+                left: 30,
+                child: Row(
+                  children: [
+                    AppButton(
+                      isIcon: true,
+                      size: 60,
+                      color: AppColors.textColor1,
+                      backgroundColor: Colors.white,
+                      borderColor: AppColors.textColor2,
+                      icon: Icons.favorite_border,
+                    ),
+                    SizedBox(
+                      width: 15,
+                    ),
+                    ResponsiveButton(
+                      isResponsive: true,
+                      width: 250,
+                    )
+                  ],
+                ),
+              )
             ],
           ),
         ),
