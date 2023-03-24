@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:travel_app/misc/colors.dart';
+import 'package:travel_app/widgets/app_button.dart';
 import 'package:travel_app/widgets/app_large_text.dart';
 import 'package:travel_app/widgets/app_text.dart';
 
@@ -119,6 +120,38 @@ class DetailPage extends StatelessWidget {
                           ),
                         ],
                       ),
+                      SizedBox(
+                        height: 20,
+                      ),
+                      AppLargeText(
+                        text: 'People',
+                        color: Colors.black87,
+                        size: 25,
+                      ),
+                      SizedBox(
+                        height: 5,
+                      ),
+                      AppText(
+                        text: 'Number of people in your group',
+                        size: 16,
+                      ),
+                      SizedBox(
+                        height: 9,
+                      ),
+                      Wrap(
+                        children: List.generate(
+                          5,
+                          (index) => Container(
+                            margin: EdgeInsets.only(right: 6),
+                            child: AppButton(
+                                text: (index + 1).toString(),
+                                backgroundColor: AppColors.buttonBackground,
+                                borderColor: AppColors.buttonBackground,
+                                color: Colors.black,
+                                size: 60),
+                          ),
+                        ),
+                      )
                     ],
                   ),
                 ),
