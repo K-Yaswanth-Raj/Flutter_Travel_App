@@ -194,7 +194,7 @@ class _DetailPageState extends State<DetailPage> {
                 ),
               ),
               Positioned(
-                bottom: 20 ,
+                bottom: 20,
                 left: 30,
                 child: Row(
                   children: [

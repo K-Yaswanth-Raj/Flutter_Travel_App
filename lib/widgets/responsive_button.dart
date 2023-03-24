@@ -18,17 +18,17 @@ class ResponsiveButton extends StatelessWidget {
         color: Colors.indigo,
       ),
       child: Row(
-        mainAxisAlignment: MainAxisAlignment.center,
-        crossAxisAlignment: CrossAxisAlignment.center,
+        mainAxisAlignment: isResponsive == true
+            ? MainAxisAlignment.spaceAround
+            : MainAxisAlignment.center,
         children: [
-          AppText(
-            size: 18,
-            text: 'Book Trip Now ',
-            color: Colors.white,
-          ),
-          SizedBox(
-            width: 20,
-          ),
+          isResponsive == true
+              ? AppText(
+                  size: 18,
+                  text: 'Book Trip Now ',
+                  color: Colors.white,
+                )
+              : Container(),
           Icon(
             Icons.arrow_forward_ios_sharp,
             color: Colors.white,
