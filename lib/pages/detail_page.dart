@@ -5,9 +5,15 @@ import 'package:travel_app/widgets/app_button.dart';
 import 'package:travel_app/widgets/app_large_text.dart';
 import 'package:travel_app/widgets/app_text.dart';
 
-class DetailPage extends StatelessWidget {
+class DetailPage extends StatefulWidget {
   const DetailPage({super.key});
 
+  @override
+  State<DetailPage> createState() => _DetailPageState();
+}
+
+class _DetailPageState extends State<DetailPage> {
+  int selectedIndex = -1;
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -121,12 +127,12 @@ class DetailPage extends StatelessWidget {
                         ],
                       ),
                       SizedBox(
-                        height: 20,
+                        height: 9,
                       ),
                       AppLargeText(
                         text: 'People',
                         color: Colors.black87,
-                        size: 25,
+                        size: 23,
                       ),
                       SizedBox(
                         height: 5,
@@ -141,17 +147,48 @@ class DetailPage extends StatelessWidget {
                       Wrap(
                         children: List.generate(
                           5,
-                          (index) => Container(
-                            margin: EdgeInsets.only(right: 6),
-                            child: AppButton(
+                          (index) => InkWell(
+                            onTap: () {
+                              setState(() {
+                                selectedIndex = index;
+                              });
+                            },
+                            child: Container(
+                              margin: EdgeInsets.only(right: 6),
+                              child: AppButton(
                                 text: (index + 1).toString(),
-                                backgroundColor: AppColors.buttonBackground,
-                                borderColor: AppColors.buttonBackground,
-                                color: Colors.black,
-                                size: 60),
+                                backgroundColor: selectedIndex == index
+                                    ? Colors.black
+                                    : AppColors.buttonBackground,
+                                borderColor: selectedIndex == index
+                                    ? Colors.black
+                                    : AppColors.buttonBackground,
+                                color: selectedIndex == index
+                                    ? Colors.white
+                                    : Colors.black87,
+                                size: 60,
+                              ),
+                            ),
                           ),
                         ),
-                      )
+                      ),
+                      SizedBox(
+                        height: 10,
+                      ),
+                      AppLargeText(
+                        text: 'Description',
+                        size: 23,
+                        color: Colors.black87,
+                      ),
+                      SizedBox(
+                        height: 3.5,
+                      ),
+                      AppText(
+                        text:
+                            'You must go for a travel. Travelling helps get rid of pressure. Go to mountains to see the nature. ',
+                        color: Colors.black54,
+                      ),
+                      
                     ],
                   ),
                 ),
