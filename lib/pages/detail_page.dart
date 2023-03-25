@@ -122,7 +122,7 @@ class _DetailPageState extends State<DetailPage> {
                             width: 3,
                           ),
                           AppText(
-                            text: '(4.0)',
+                            text: '(4.5)',
                             color: Colors.black54,
                           ),
                         ],
@@ -207,7 +207,7 @@ class _DetailPageState extends State<DetailPage> {
                       icon: Icons.favorite_border,
                     ),
                     SizedBox(
-                      width: 15,
+                      width: 25,
                     ),
                     ResponsiveButton(
                       isResponsive: true,
