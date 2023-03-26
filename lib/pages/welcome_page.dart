@@ -109,7 +109,6 @@ class WelcomePage extends StatelessWidget {
                               Container(
                                 child: Center(
                                   child: TextButton(
-                                    
                                     child: Text(
                                       '    Go    ',
                                       style: TextStyle(

@@ -13,13 +13,24 @@ class WelcomeState extends CubitStates {
   @override
   List<Object?> get props => [];
 }
+
 class LoadingState extends CubitStates {
   @override
   List<Object?> get props => [];
 }
+
 class LoadedState extends CubitStates {
   final List<Model> places;
   LoadedState(this.places);
   @override
   List<Object?> get props => [places];
+}
+
+class DetailState extends CubitStates {
+  final Model place;
+
+  DetailState(this.place);
+
+  @override
+  List<Object?> get props => [place];
 }
