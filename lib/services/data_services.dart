@@ -8,11 +8,10 @@ class DataServices {
   Future<List<Model>> getInfo() async {
     try {
       Response response = await api.sendRequest.get('/getplaces');
-
       List<dynamic> data = response.data;
       return data.map((e) => Model.fromJson(e)).toList();
     } catch (ex) {
-      throw (ex);
+      return <Model>[];
     }
   }
 }

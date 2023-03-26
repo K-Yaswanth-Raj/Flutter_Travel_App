@@ -1,12 +1,7 @@
-import 'package:equatable/equatable.dart';
-
-abstract class CubitStates extends Equatable{}
-
-class InitialState extends CubitStates{
-  @override
-  List<Object?> get props => [];
-}
-class WelcomeState extends CubitStates{
-  @override
-  List<Object?> get props => [];
+import 'package:bloc/bloc.dart';
+import 'app_state.dart';
+class AppCubit extends Cubit<CubitStates> {
+  AppCubit() : super(InitialState()) {
+    emit(WelcomeState());
+  }
 }
