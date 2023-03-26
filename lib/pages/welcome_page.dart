@@ -109,7 +109,7 @@ class WelcomePage extends StatelessWidget {
                               Container(
                                 child: Center(
                                   child: TextButton(
-                                    //style: ButtonStyle(elevation: MaterialStateProperty()),
+                                    
                                     child: Text(
                                       '    Go    ',
                                       style: TextStyle(
@@ -120,7 +120,8 @@ class WelcomePage extends StatelessWidget {
                                       color: Colors.white,
                                     )),
                                     onPressed: () {
-                                      BlocProvider.of<AppCubit>(context).getTravelData();
+                                      BlocProvider.of<AppCubit>(context)
+                                          .getTravelData();
                                     },
                                   ),
                                 ),
