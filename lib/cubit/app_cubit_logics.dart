@@ -18,9 +18,15 @@ class _AppCubitLogicsState extends State<AppCubitLogics> {
       child: Scaffold(
         body: BlocBuilder<AppCubit, CubitStates>(
           builder: (context, state) {
-            if(state is WelcomeState){
+            if (state is WelcomeState) {
               return WelcomePage();
-            }else{
+            } else if (state is LoadingState) {
+              return Center(
+                child: CircularProgressIndicator(
+                  color: Colors.indigo,
+                ),
+              );
+            } else {
               return Container();
             }
           },

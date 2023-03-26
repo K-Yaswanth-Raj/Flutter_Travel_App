@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:travel_app/cubit/app_cubit.dart';
 import 'package:travel_app/misc/colors.dart';
 import 'package:travel_app/widgets/app_large_text.dart';
 import 'package:travel_app/widgets/app_text.dart';
@@ -109,11 +111,17 @@ class WelcomePage extends StatelessWidget {
                                   child: TextButton(
                                     //style: ButtonStyle(elevation: MaterialStateProperty()),
                                     child: Text(
-                                      'Started',
+                                      '    Go    ',
                                       style: TextStyle(
                                           color: Colors.white, fontSize: 25),
                                     ),
-                                    onPressed: () {},
+                                    style: TextButton.styleFrom(
+                                        side: BorderSide(
+                                      color: Colors.white,
+                                    )),
+                                    onPressed: () {
+                                      BlocProvider.of<AppCubit>(context).getTravelData();
+                                    },
                                   ),
                                 ),
                               ),

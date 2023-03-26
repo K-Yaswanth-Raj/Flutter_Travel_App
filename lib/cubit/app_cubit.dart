@@ -4,4 +4,13 @@ class AppCubit extends Cubit<CubitStates> {
   AppCubit() : super(InitialState()) {
     emit(WelcomeState());
   }
+
+  getTravelData(){
+    try{
+      emit(LoadingState());
+    }
+    catch(ex){
+      print(ex.toString());
+    }
+  }
 }
